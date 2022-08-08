@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 127c16ff1976b414a8ea21c69c98c2dc, type: 3}
+  m_Name: BoboStateMachine
+  m_EditorClassIdentifier: 
+  originalState: {fileID: 11400000, guid: 9b4f780d59831284c92e34ed2f42163f, type: 2}
+  currentState: {fileID: 11400000, guid: 4c644ece920a8744cbf40d7571c47e9f, type: 2}
+  _anytransition:
+  - condition: {fileID: 11400000, guid: 8f6d479aeb87bb1409ea6e20eb55f1ea, type: 2}
+    expectedResult: 0
+    toState: {fileID: 11400000, guid: 4c644ece920a8744cbf40d7571c47e9f, type: 2}
+    result: 1

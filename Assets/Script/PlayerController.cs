@@ -289,35 +289,6 @@ public class PlayerController : MonoBehaviour
         boboAnimator.SetLayerWeight(1, 0f);
     }
 
-
-        //This function relate to the stealth gameplay. could change to state manager, still developing
-        //public void Shake()
-        //{
-        //    if (isInGround && boboCollider.isTrigger)
-        //    {
-        //        shakeNum += 1;
-        //        boboAnimator.SetBool("shaking", true);
-        //        boboAnimator.SetInteger("shakeNum", shakeNum);
-
-        //        //When player press shake button three times, the bobo will jump to the ground
-        //        if (shakeNum == 3)
-        //        {
-        //            boboRB.AddForce(Vector3.up * jumpFromGroundForce);
-        //            boboAnimator.SetBool("jumping", true);
-        //        }
-        //    }
-        //    else
-        //    {
-        //        Debug.Log("Is not under the ground!");
-        //    }
-        //}
-
-        //public void InToGround()
-        //{
-        //    boboCollider.isTrigger = true;
-        //    isInGround = true;
-        //}
-
         //Map value function
         public float Map(float value, float fromSource, float toSource, float fromTarget, float toTarget)
     {

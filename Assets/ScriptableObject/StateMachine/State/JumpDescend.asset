@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b253c28c5dc7b6448be9f053cbc3d1e3, type: 3}
+  m_Name: JumpDescend
+  m_EditorClassIdentifier: 
+  stateAction: {fileID: 11400000, guid: f99d647da393cec49ad5c52b54733dca, type: 2}
+  transitions:
+  - condition: {fileID: 11400000, guid: 46ca0c30e872824479291ca8821e1329, type: 2}
+    expectedResult: 0
+    toState: {fileID: 11400000, guid: 9b4f780d59831284c92e34ed2f42163f, type: 2}
+    result: 1
+  - condition: {fileID: 11400000, guid: c0be33808d470c449bbb5d16640758f6, type: 2}
+    expectedResult: 0
+    toState: {fileID: 11400000, guid: ec5b01d5acd20c640956c404ecba70a1, type: 2}
+    result: 1
