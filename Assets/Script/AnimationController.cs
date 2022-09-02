@@ -18,6 +18,5 @@ public class AnimationController : MonoBehaviour
     {
         restartAniEnd = true;
         diedAniEnd = false;
-        Debug.Log("RestartAniEnd");
     }
 }

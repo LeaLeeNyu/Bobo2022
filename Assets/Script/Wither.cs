@@ -7,6 +7,7 @@ public class Wither : MonoBehaviour
     private float witherTime =5f;
     private FunctionTimer witherTimer;
 
+    [HideInInspector] public bool collideGround;
     private bool startWither = false;
     [HideInInspector]public bool died = false;
 
@@ -38,12 +39,14 @@ public class Wither : MonoBehaviour
         {
             //if bobo collide with the dirt
             //stop the timer and reset the time
+            collideGround = true;
             startWither = false;
             witherTimer.ResetSelf(witherTime);
             leafColor.color = greenLeaf;
         }
         else
         {
+            collideGround = false;
             startWither = true;
         }
     }

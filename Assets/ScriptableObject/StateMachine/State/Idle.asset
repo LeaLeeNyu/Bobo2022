@@ -22,3 +22,7 @@ MonoBehaviour:
     expectedResult: 0
     toState: {fileID: 11400000, guid: 9fd633fd141c5bc46ab847ed94e6ca8a, type: 2}
     result: 1
+  - condition: {fileID: 11400000, guid: 0ff048def5d8ecf4d9faea820dc2f688, type: 2}
+    expectedResult: 0
+    toState: {fileID: 11400000, guid: 1b6f3ebcb9315b3459b0e428e0150dd6, type: 2}
+    result: 1

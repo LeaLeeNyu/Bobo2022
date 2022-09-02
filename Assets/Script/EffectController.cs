@@ -31,7 +31,6 @@ public class EffectController : MonoBehaviour
     public void EnableLandingParticles()
     {
         _landingParticles.Play();
-        Debug.Log("Landing");   
     }
 
     public void DisableLandingParticles()

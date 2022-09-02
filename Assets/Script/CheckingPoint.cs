@@ -17,7 +17,7 @@ public class CheckingPoint : MonoBehaviour
         {
             //If player arrive at this check point, next time player died, they will reborn at this check point
             SaveSystem.SavePlayer(this);
-            Debug.Log("checking point");
+            //Debug.Log("checking point");
         }
     }
 

@@ -6,7 +6,7 @@ using UnityEngine;
 public class IsMovingConditionSO : Condition
 {
     private BoboInput boboInput;
-    public float trehold = 0.1f;
+    public float threshold = 0.1f;
 
     public override bool stateCondition(StateController controller)
     {
@@ -18,7 +18,7 @@ public class IsMovingConditionSO : Condition
     private bool isMove(BoboInput boboInput)
     {
         Vector2 moveInput = boboInput.moveVectorInput;
-        return moveInput.magnitude > trehold;
+        return moveInput.magnitude > threshold;
     }
 
 }

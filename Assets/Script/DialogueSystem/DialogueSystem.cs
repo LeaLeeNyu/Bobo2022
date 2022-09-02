@@ -86,7 +86,6 @@ public class DialogueSystem : MonoBehaviour
 
     void EndDialogue()
     {
-        Debug.Log("The dialogue is end.");
         //The dialogue ends.
         noDialogue = true;
         dialogueAni.SetBool("noDialogue", noDialogue);

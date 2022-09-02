@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditorInternal.VersionControl.ListControl;
 
 public class StateController : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class StateController : MonoBehaviour
     [HideInInspector] public EffectController boboEffect;
     [HideInInspector] public Wither wither;
     [HideInInspector] public AnimationController aniController;
+    [HideInInspector] public CapsuleCollider boboCollider;
     public Transform cameraTrans;
 
     [SerializeField] private StateSO _currentState;
@@ -26,13 +28,14 @@ public class StateController : MonoBehaviour
         boboEffect = GetComponent<EffectController>();
         wither = GetComponent<Wither>();
         aniController = GetComponent<AnimationController>();
+        boboCollider = GetComponent<CapsuleCollider>(); 
         boboStateMachine.currentState = boboStateMachine.originalState;
     }
 
     private void Update()
     {
         boboStateMachine.Tick(this);
-        _currentState = boboStateMachine.currentState;
+        _currentState = boboStateMachine.currentState;     
     }
 
 

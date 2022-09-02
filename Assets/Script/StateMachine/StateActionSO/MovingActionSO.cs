@@ -13,7 +13,7 @@ public class MovingActionSO : StateAction
     public override void OnEnter(StateController controller)
     {
         controller.boboEffect.EnableWalkParticles();
-        Debug.Log("Enter the moving state");
+        //Debug.Log("Enter the moving state");
         controller.boboAnimator.SetBool("walking", true);
     }
 
@@ -38,8 +38,6 @@ public class MovingActionSO : StateAction
             controller.boboRB.velocity = new Vector3(turnDir.normalized.x * walkSpeed, controller.boboRB.velocity.y, turnDir.normalized.z * walkSpeed);           
         }
 
-        //control the walk animation
-        //controller.boboAnimator.SetFloat("walking", walkDirection.magnitude);
     }
 
     public override void OnExit(StateController controller)

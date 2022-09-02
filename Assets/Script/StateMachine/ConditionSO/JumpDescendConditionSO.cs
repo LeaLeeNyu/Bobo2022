@@ -12,7 +12,7 @@ public class JumpDescendConditionSO : Condition
 
     private bool JumpDescend(StateController controller)
     {
-        if(!controller.boboInput.jumpInput && controller.boboRB.velocity.y <= 0)
+        if( controller.boboRB.velocity.y <= 0)
         {
             return true;
         }

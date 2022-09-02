@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b253c28c5dc7b6448be9f053cbc3d1e3, type: 3}
+  m_Name: OnStealth
+  m_EditorClassIdentifier: 
+  stateAction: {fileID: 11400000, guid: 103b9c8dea1f6364fb0b683800d0a9a4, type: 2}
+  transitions:
+  - condition: {fileID: 11400000, guid: 6cae45dd8b0a1364d93d6ae6ca361a66, type: 2}
+    expectedResult: 0
+    toState: {fileID: 11400000, guid: 59f97e8aac262cd40850a0c5cac6867c, type: 2}
+    result: 0
+  - condition: {fileID: 11400000, guid: 095f2acb0f55723419c1184d9ee6647d, type: 2}
+    expectedResult: 0
+    toState: {fileID: 11400000, guid: 394ac13c67c8eb2478c2aa1cbb1b5ace, type: 2}
+    result: 0
