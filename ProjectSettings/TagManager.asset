@@ -8,6 +8,7 @@ TagManager:
   - Garden
   - Map
   - Friend
+  - WitherGround
   layers:
   - Default
   - TransparentFX
