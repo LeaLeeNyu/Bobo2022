@@ -54,7 +54,7 @@ public class DialogueSystem : MonoBehaviour
         nameText.text = dialogue.name;
 
         //Set the next text to continue;
-        nextButton.text = "CONTINUE>>";
+        nextButton.text = "NEXT";
 
         // clear all the object in sentences
         sentences.Clear();
