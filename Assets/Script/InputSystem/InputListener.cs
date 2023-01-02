@@ -41,6 +41,7 @@ public class InputListener : ScriptableObject, GameInput.IBasicActions,GameInput
     {
         _gameInput.Basic.Disable();
         _gameInput.Stealth.Enable();
+        _gameInput.UI.Disable();
         Debug.Log("Enable Stealth"); 
     }
 
@@ -51,10 +52,19 @@ public class InputListener : ScriptableObject, GameInput.IBasicActions,GameInput
         Debug.Log("Enable Basic");
     }
 
+    public void EnableUI()
+    {
+        _gameInput.UI.Enable();
+        _gameInput.Stealth.Disable();
+        _gameInput.Basic.Disable();
+        Debug.Log("Enable UI");
+    }
+
     private void DisableAll()
     {
         _gameInput.Basic.Disable();
         _gameInput.Stealth.Disable();
+        _gameInput.UI.Disable();
     }
 
     public void OnJump(InputAction.CallbackContext context)

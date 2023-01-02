@@ -9,12 +9,17 @@ public class MovingActionSO : StateAction
     [SerializeField]private float turnSmoothTime = 0.05f;
     [SerializeField]private float turnSmoothVelocity = default;
 
+    private float lerpValue = 0;
+
 
     public override void OnEnter(StateController controller)
     {
         controller.boboEffect.EnableWalkParticles();
         //Debug.Log("Enter the moving state");
         controller.boboAnimator.SetBool("walking", true);
+
+        turnSmoothVelocity = 0f;
+        lerpValue = 0;
     }
 
     public override void Tick(StateController controller)
@@ -35,16 +40,25 @@ public class MovingActionSO : StateAction
 
             Vector3 turnDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
 
-            controller.boboRB.velocity = new Vector3(turnDir.normalized.x * walkSpeed, controller.boboRB.velocity.y, turnDir.normalized.z * walkSpeed);           
+            //move bobo
+            float walkLerpSpeed = Mathf.Lerp(0,walkSpeed,lerpValue);
+            if (lerpValue <= 1)
+                lerpValue += Time.deltaTime * 2f;
+
+            controller.boboRB.velocity = new Vector3(turnDir.normalized.x * walkLerpSpeed, controller.boboRB.velocity.y, turnDir.normalized.z * walkLerpSpeed);
         }
 
     }
 
     public override void OnExit(StateController controller)
     {
+        turnSmoothVelocity = 0f;
+        lerpValue = 0;
+
         controller.boboEffect.DisableWalkParticles();
 
         //control the walk animation
         controller.boboAnimator.SetBool("walking", false);
+        controller.boboRB.velocity = Vector3.zero;
     }
 }

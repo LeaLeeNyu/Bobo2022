@@ -34,6 +34,9 @@ public class BoboInput : MonoBehaviour
         inputListener.StealthMove += OnStealthMove;
         inputListener.QuitStealthE += OnStealthQuit;
         inputListener.QuitStealthCancel += OnStealthQuitCancel;
+
+        //Canvas Action Map
+
     }
 
     private void OnDisable()

@@ -336,6 +336,12 @@ public partial class @GameInput : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""UI"",
+            ""id"": ""7c88103d-8c53-422c-9cf8-91868a1c8ec3"",
+            ""actions"": [],
+            ""bindings"": []
         }
     ],
     ""controlSchemes"": []
@@ -349,6 +355,8 @@ public partial class @GameInput : IInputActionCollection2, IDisposable
         m_Stealth = asset.FindActionMap("Stealth", throwIfNotFound: true);
         m_Stealth_StealthMove = m_Stealth.FindAction("StealthMove", throwIfNotFound: true);
         m_Stealth_QuitStealth = m_Stealth.FindAction("QuitStealth", throwIfNotFound: true);
+        // UI
+        m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -494,6 +502,31 @@ public partial class @GameInput : IInputActionCollection2, IDisposable
         }
     }
     public StealthActions @Stealth => new StealthActions(this);
+
+    // UI
+    private readonly InputActionMap m_UI;
+    private IUIActions m_UIActionsCallbackInterface;
+    public struct UIActions
+    {
+        private @GameInput m_Wrapper;
+        public UIActions(@GameInput wrapper) { m_Wrapper = wrapper; }
+        public InputActionMap Get() { return m_Wrapper.m_UI; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(UIActions set) { return set.Get(); }
+        public void SetCallbacks(IUIActions instance)
+        {
+            if (m_Wrapper.m_UIActionsCallbackInterface != null)
+            {
+            }
+            m_Wrapper.m_UIActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+            }
+        }
+    }
+    public UIActions @UI => new UIActions(this);
     public interface IBasicActions
     {
         void OnMove(InputAction.CallbackContext context);
@@ -504,5 +537,8 @@ public partial class @GameInput : IInputActionCollection2, IDisposable
     {
         void OnStealthMove(InputAction.CallbackContext context);
         void OnQuitStealth(InputAction.CallbackContext context);
+    }
+    public interface IUIActions
+    {
     }
 }

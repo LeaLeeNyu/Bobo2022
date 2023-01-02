@@ -5,6 +5,7 @@ using UnityEngine;
 public class CinemachineSwitch : MonoBehaviour
 {
     private Animator camAnimator;
+    [SerializeField] private DialogueSystem friendDialogue;
 
     void Start()
     {
@@ -21,7 +22,7 @@ public class CinemachineSwitch : MonoBehaviour
     void SwitchCamera()
     {
         //If there is Dialogue
-        if (!DialogueSystem.noDialogue)
+        if (!friendDialogue.noDialogue)
         {
             camAnimator.Play("DialogueCamera");
         }

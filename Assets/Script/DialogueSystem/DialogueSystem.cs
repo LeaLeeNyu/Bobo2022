@@ -19,7 +19,7 @@ public class DialogueSystem : MonoBehaviour
     private Animator dialogueAni;
 
     // to control when the dialogue shows up, the player cannot move
-    public static bool noDialogue = true;
+    public bool noDialogue = true;
 
 
     // make the DialogueSysyem as Singleton, only one instance exist in the scene

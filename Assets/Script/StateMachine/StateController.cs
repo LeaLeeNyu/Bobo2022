@@ -14,6 +14,7 @@ public class StateController : MonoBehaviour
     [HideInInspector] public Wither wither;
     [HideInInspector] public AnimationController aniController;
     [HideInInspector] public CapsuleCollider boboCollider;
+    public DialogueSystem friendDialougue;
     public Transform cameraTrans;
 
     [SerializeField] private StateSO _currentState;
