@@ -12,3 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b75397249bae694993c9866ec15ab06, type: 3}
   m_Name: MovingActionSO
   m_EditorClassIdentifier: 
+  walkSpeed: 3
+  turnSmoothTime: 0.05
+  turnSmoothVelocity: 0
