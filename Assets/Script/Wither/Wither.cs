@@ -5,7 +5,7 @@ using UnityEngine;
 public class Wither : MonoBehaviour
 {
     private float witherTime =5f;
-    private FunctionTimer witherTimer;
+    [HideInInspector]public FunctionTimer witherTimer;
 
     [HideInInspector] public bool collideGround;
     private bool startWither = false;
