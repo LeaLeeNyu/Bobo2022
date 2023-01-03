@@ -28,6 +28,8 @@ public class RestartActionSO : StateAction
     {
         //Ani
         controller.boboAnimator.SetBool("restart", false);
+        controller.boboAnimator.SetBool("jumping", false);
+        controller.boboAnimator.SetBool("falling", false);
     }
 
     public override void Tick(StateController controller)

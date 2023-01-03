@@ -9,6 +9,7 @@ TagManager:
   - Map
   - Friend
   - WitherGround
+  - PowerUp
   layers:
   - Default
   - TransparentFX

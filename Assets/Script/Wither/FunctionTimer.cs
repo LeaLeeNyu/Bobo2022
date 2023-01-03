@@ -20,7 +20,7 @@ public class FunctionTimer
         if (!isDestoryed)
         {
             timer -= Time.deltaTime;
-            if (timer < 0)
+            if (timer <= 0)
             {
                 //trigger the action
                 action();

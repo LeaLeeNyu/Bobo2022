@@ -5,7 +5,8 @@ using UnityEngine;
 public class Wither : MonoBehaviour
 {
     private float witherTime =5f;
-    [HideInInspector]public FunctionTimer witherTimer;
+    [HideInInspector] public float witherTimeLength;
+    [HideInInspector] public FunctionTimer witherTimer;
 
     [HideInInspector] public bool collideGround;
     private bool startWither = false;
@@ -14,6 +15,7 @@ public class Wither : MonoBehaviour
     public Material leafColor;
     public Color yellowLeaf;
     public Color greenLeaf;
+    [HideInInspector] public float colorTime =1f;
 
     //OnGround Detect
     [SerializeField]private Transform groundCheck;
@@ -22,6 +24,7 @@ public class Wither : MonoBehaviour
     private void Awake()
     {
         //Create a timer
+        witherTimeLength = witherTime;
         witherTimer = new FunctionTimer(Withered, witherTime);
         startWither = false;
         leafColor.color = greenLeaf;
@@ -33,12 +36,12 @@ public class Wither : MonoBehaviour
 
         if (startWither)
         {
+            //change leaves color by time
+            colorTime = Map(witherTimer.timer, 0f, witherTime, 1f, 0f);
+            leafColor.color = Color.Lerp(greenLeaf, yellowLeaf, colorTime);
+
             witherTimer.UpdateTimer();
             //Debug.Log(witherTimer.timer);
-
-            //change leaves color by time
-            float colorTime = Map(witherTimer.timer, 0f, witherTime, 1f, 0f);
-            leafColor.color = Color.Lerp(greenLeaf, yellowLeaf, colorTime);
         }
     }
 
@@ -58,6 +61,7 @@ public class Wither : MonoBehaviour
                 witherTimer.ResetSelf(witherTime);
                 if (!died)
                 {
+                    colorTime = Map(witherTimer.timer, 0f, witherTime, 1f, 0f);
                     leafColor.color = greenLeaf;
                 }                
             }

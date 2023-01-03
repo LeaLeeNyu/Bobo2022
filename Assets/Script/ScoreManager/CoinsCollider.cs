@@ -13,9 +13,13 @@ public class CoinsCollider : MonoBehaviour
         {
             ScoreManager.coinsCount += 1;
 
-            if(this.tag == "PowerUp")
+            //if the coin is a special power up, add time
+            if(this.tag == "PowerUp" && wither.witherTimer.timer+1f< wither.witherTimeLength)
             {
-                wither.witherTimer.timer += 0.1f;
+                wither.witherTimer.timer += 1f;
+            }else if(this.tag == "PowerUp")
+            {
+                wither.witherTimer.timer = wither.witherTimeLength;
             }
 
             Destroy(gameObject);
