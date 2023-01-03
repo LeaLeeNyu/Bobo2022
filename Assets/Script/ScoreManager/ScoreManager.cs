@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] private TMP_Text scoreText;
     [SerializeField] private TMP_Text timeScore;
     [SerializeField] private TMP_Text coinsScore;
+
+    [HideInInspector] public bool gameEnd = false;
 
 
     //Canvas Animator
@@ -30,6 +33,7 @@ public class ScoreManager : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            gameEnd = true;
             countScore();
         }
             

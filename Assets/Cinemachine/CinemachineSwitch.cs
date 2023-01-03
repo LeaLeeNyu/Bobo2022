@@ -6,6 +6,7 @@ public class CinemachineSwitch : MonoBehaviour
 {
     private Animator camAnimator;
     [SerializeField] private DialogueSystem friendDialogue;
+    [SerializeField] private ScoreManager scoreManager;
 
     void Start()
     {
@@ -22,7 +23,12 @@ public class CinemachineSwitch : MonoBehaviour
     void SwitchCamera()
     {
         //If there is Dialogue
-        if (!friendDialogue.noDialogue)
+        //If player finish the level
+        if (scoreManager.gameEnd)
+        {
+            camAnimator.Play("FinishCamera");
+        }
+        else if (!friendDialogue.noDialogue)
         {
             camAnimator.Play("DialogueCamera");
         }
@@ -30,5 +36,7 @@ public class CinemachineSwitch : MonoBehaviour
         {
             camAnimator.Play("ThirdPersonCamera");
         }
+
+
     }
 }
