@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
     public Color yellowLeaf;
     public Color greenLeaf;
 
-    //bobo died & restart
+    //bobo diedAniStart & restart
     public static bool died = false;
     //public static bool restart = false;
 
@@ -80,7 +80,7 @@ public class PlayerController : MonoBehaviour
 
         Debug.Log(died);
 
-        //if player died & restart
+        //if player diedAniStart & restart
         if (died)
         {
             Restart();
@@ -251,8 +251,8 @@ public class PlayerController : MonoBehaviour
     // if bobo stand on ground more than x second,
     private void Wither()
     {
-        Debug.Log("Bobo died");
-        boboAnimator.SetBool("died", true);
+        Debug.Log("Bobo diedAniStart");
+        boboAnimator.SetBool("diedAniStart", true);
         died = true;
     }
 
@@ -275,17 +275,17 @@ public class PlayerController : MonoBehaviour
 
         //Ani
         boboAnimator.SetLayerWeight(1, 1f);
-        boboAnimator.SetBool("died", false);
+        boboAnimator.SetBool("diedAniStart", false);
         //Leaf color
         leafColor.color = greenLeaf;
-        //died
+        //diedAniStart
         died = false;
     }
 
     //when the restart ani end
     public void DiedFalse()
     {
-        //died = false;
+        //diedAniStart = false;
         boboAnimator.SetLayerWeight(1, 0f);
     }
 

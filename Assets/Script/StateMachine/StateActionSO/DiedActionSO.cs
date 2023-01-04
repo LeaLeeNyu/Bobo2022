@@ -11,7 +11,7 @@ public class DiedActionSO : StateAction
         controller.boboAnimator.SetBool("died", true);
         //died
         controller.wither.died = false;
-        Debug.Log("Enter the died state");
+        //Debug.Log("Enter the died state");
     }
 
     public override void OnExit(StateController controller)

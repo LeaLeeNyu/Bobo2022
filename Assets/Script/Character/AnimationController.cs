@@ -4,13 +4,23 @@ using UnityEngine;
 
 public class AnimationController : MonoBehaviour
 {
-    [HideInInspector]public bool diedAniEnd = false;
+    public bool diedAniEnd = false;
     [HideInInspector] public bool restartAniEnd = false;
+
+    //relate to bobo's leaf color change when it diedAniStart and collide with dirt ground
+     public bool diedAniStart = false;
+
+    public void DiedAniStart()
+    {
+        diedAniStart = true;
+        Debug.Log("DiedAniStart");
+    }
 
     public void DiedAniEnd()
     {
         restartAniEnd = false;
         diedAniEnd = true;
+        diedAniStart = false;
         Debug.Log("DiedAniEnd");
     }
 
@@ -18,5 +28,6 @@ public class AnimationController : MonoBehaviour
     {
         restartAniEnd = true;
         diedAniEnd = false;
+        
     }
 }

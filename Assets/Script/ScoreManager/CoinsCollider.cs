@@ -8,8 +8,8 @@ public class CoinsCollider : MonoBehaviour
     //collide with bobo, coin destory
     private void OnTriggerEnter(Collider other)
     {
-
-        if(other.gameObject.tag == "Player")
+        //If collider is player and player is not died
+        if(other.gameObject.tag == "Player" && !wither.died && !wither.aniController.diedAniStart)
         {
             ScoreManager.coinsCount += 1;
 

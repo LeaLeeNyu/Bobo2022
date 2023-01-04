@@ -8,7 +8,9 @@ public class Wither : MonoBehaviour
     [HideInInspector] public float witherTimeLength;
     [HideInInspector] public FunctionTimer witherTimer;
 
+    //relate wirh stealth behaviour
     [HideInInspector] public bool collideGround;
+
     private bool startWither = false;
     [HideInInspector]public bool died = false;
 
@@ -20,6 +22,9 @@ public class Wither : MonoBehaviour
     //OnGround Detect
     [SerializeField]private Transform groundCheck;
     [SerializeField]private float groundCheckRadius =0.1f;
+
+    //Animator Controller
+    public AnimationController aniController;
 
     private void Awake()
     {
@@ -34,7 +39,7 @@ public class Wither : MonoBehaviour
     {
         DetectCollider();
 
-        if (startWither)
+        if (startWither && !died && !aniController.diedAniStart)
         {
             //change leaves color by time
             colorTime = Map(witherTimer.timer, 0f, witherTime, 1f, 0f);
@@ -43,6 +48,7 @@ public class Wither : MonoBehaviour
             witherTimer.UpdateTimer();
             //Debug.Log(witherTimer.timer);
         }
+
     }
 
     private void DetectCollider()
@@ -54,38 +60,25 @@ public class Wither : MonoBehaviour
             {
                 collideGround = false;
                 startWither = true;
-            }else if(collider.gameObject.tag == "Ground")
+            }
+            //if bobo collide with dirt, reset the timer
+            else if(collider.gameObject.tag == "Ground")
             {
                 collideGround = true;
                 startWither = false;
-                witherTimer.ResetSelf(witherTime);
-                if (!died)
+               
+
+                //reset bobo leaf color 
+                if (!died && !aniController.diedAniStart)
                 {
+                    witherTimer.ResetSelf(witherTime);
                     colorTime = Map(witherTimer.timer, 0f, witherTime, 1f, 0f);
                     leafColor.color = greenLeaf;
+                    Debug.Log("reset");
                 }                
             }
         }
     }
-
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    if (collision.gameObject.tag == "Ground")
-    //    {
-    //        Debug.Log("Ground");
-    //        //if bobo collide with the dirt
-    //        //stop the timer and reset the time
-    //        collideGround = true;
-    //        startWither = false;
-    //        witherTimer.ResetSelf(witherTime);
-    //        leafColor.color = greenLeaf;
-    //    }
-    //    else
-    //    {
-    //        collideGround = false;
-    //        startWither = true;
-    //    }
-    //}
 
     private void Withered()
     {

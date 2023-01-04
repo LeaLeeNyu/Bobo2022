@@ -16,7 +16,7 @@ public class CheckingPoint : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            //If player arrive at this check point, next time player died, they will reborn at this check point
+            //If player arrive at this check point, next time player diedAniStart, they will reborn at this check point
             SaveSystem.SavePlayer(this);
             //Debug.Log("checking point");
         }

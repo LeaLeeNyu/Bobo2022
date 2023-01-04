@@ -17,10 +17,10 @@ public class RestartActionSO : StateAction
         controller.gameObject.transform.position = position;
 
         //Leaf color
-        controller.wither.leafColor.color = controller.wither.greenLeaf;
+        //controller.wither.leafColor.color = controller.wither.greenLeaf;
 
         //Ani
-       // controller.boboAnimator.SetBool("died", false);
+       // controller.boboAnimator.SetBool("diedAniStart", false);
         controller.boboAnimator.SetBool("restart", true);
     }
 
