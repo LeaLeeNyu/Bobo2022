@@ -47,7 +47,7 @@ public class CameraLook : MonoBehaviour
         if (Physics.Raycast(cameraM.transform.position, cameraM.transform.forward, out hitter,range))
         {
             //Debug.Log("hit something!");
-            Debug.Log(hitter.collider.gameObject.name);
+            //Debug.Log(hitter.collider.gameObject.name);
 
             //if I held some obj
             if (heldObj != null)
@@ -69,6 +69,7 @@ public class CameraLook : MonoBehaviour
                 {
                     lookMap = true;
                     mapName = hitter.collider.gameObject.name;
+                    Debug.Log(mapName);
                 }
                 
             }
@@ -76,6 +77,7 @@ public class CameraLook : MonoBehaviour
             else if(hitter.collider.gameObject.tag == "Friend")
             {
                 friendIsHit = true;
+                mapUI.SetActive(false);
 
                 if (Input.GetMouseButtonDown(0) && friendDialogueSystem.noDialogue)
                 {
@@ -112,6 +114,12 @@ public class CameraLook : MonoBehaviour
 
         objOriginalPos = Vector3.zero;
         heldObj = null;
+    }
+
+    //Close Map
+    public void CloseMap()
+    {
+        lookMap = false;
     }
 
     //Dialogue Trigger

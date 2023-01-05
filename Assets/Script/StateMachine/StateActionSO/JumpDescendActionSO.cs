@@ -30,6 +30,10 @@ public class JumpDescendActionSO : StateAction
         //boboRB.velocity += Vector3.up * Physics.gravity.y * (jumpHeight - 1f);
 
         Movement(controller);
+
+        controller.wither.DetectCollider();
+        controller.wither.UpdateTimer();
+        controller.wither.UpdateLeafColor();
     }
 
     private void Movement(StateController controller)

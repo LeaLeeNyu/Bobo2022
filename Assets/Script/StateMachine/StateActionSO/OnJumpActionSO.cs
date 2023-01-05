@@ -30,6 +30,10 @@ public class OnJumpActionSO : StateAction
     public override void Tick(StateController controller)
     {
         Movement(controller);
+
+        controller.wither.DetectCollider();
+        controller.wither.UpdateTimer();
+        controller.wither.UpdateLeafColor();
     }
 
     private void Movement(StateController controller)

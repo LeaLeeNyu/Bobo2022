@@ -22,6 +22,12 @@ public class RestartActionSO : StateAction
         //Ani
        // controller.boboAnimator.SetBool("diedAniStart", false);
         controller.boboAnimator.SetBool("restart", true);
+
+        //Reset leaf color
+        controller.wither.ResetLeafColor();
+
+        //Reset map state
+        controller.cameraLook.lookMap = false;
     }
 
     public override void OnExit(StateController controller)

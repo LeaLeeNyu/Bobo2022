@@ -12,5 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b253c28c5dc7b6448be9f053cbc3d1e3, type: 3}
   m_Name: Map
   m_EditorClassIdentifier: 
-  stateAction: {fileID: 0}
-  transitions: []
+  stateAction: {fileID: 11400000, guid: 63ce2e01c9a93ef46aaf558820ab94f8, type: 2}
+  transitions:
+  - condition: {fileID: 11400000, guid: 05e2779cbde971248825383b8c32298e, type: 2}
+    expectedResult: 1
+    toState: {fileID: 11400000, guid: 9b4f780d59831284c92e34ed2f42163f, type: 2}
+    result: 0

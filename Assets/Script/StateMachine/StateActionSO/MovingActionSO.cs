@@ -48,6 +48,10 @@ public class MovingActionSO : StateAction
             controller.boboRB.velocity = new Vector3(turnDir.normalized.x * walkLerpSpeed, controller.boboRB.velocity.y, turnDir.normalized.z * walkLerpSpeed);
         }
 
+        controller.wither.DetectCollider();
+        controller.wither.UpdateTimer();
+        controller.wither.UpdateLeafColor();
+
     }
 
     public override void OnExit(StateController controller)

@@ -17,6 +17,8 @@ public class IdleActionSO : StateAction
 
     public override void Tick(StateController controller)
     {
-        //throw new System.NotImplementedException();
+        controller.wither.DetectCollider();
+        controller.wither.UpdateTimer();
+        controller.wither.UpdateLeafColor();
     }
 }

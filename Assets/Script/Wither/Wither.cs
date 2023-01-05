@@ -35,22 +35,6 @@ public class Wither : MonoBehaviour
         leafColor.color = greenLeaf;
     }
 
-    private void Update()
-    {
-        //DetectCollider();
-        //witherTimer.UpdateTimer();
-
-        ////if player on the wither ground and not die
-        //if (startWither && !died && !aniController.diedAniStart)
-        //{
-        //    //change leaves color by time
-        //    colorTime = Map(witherTimer.timer, 0f, witherTimeLength, 1f, 0f);
-        //    leafColor.color = Color.Lerp(greenLeaf, yellowLeaf, colorTime);          
-        //    //Debug.Log(witherTimer.timer);
-        //}
-
-    }
-
     public void DetectCollider()
     {
         Collider[] hitColliders = Physics.OverlapSphere(groundCheck.position, groundCheckRadius);
@@ -65,16 +49,7 @@ public class Wither : MonoBehaviour
             else if(collider.gameObject.tag == "Ground")
             {
                 collideGround = true;
-                startWither = false;
-               
-
-                //reset bobo leaf color 
-                //if (!died && !aniController.diedAniStart)
-                //{
-                //    witherTimer.ResetSelf(witherTime);
-                //    colorTime = Map(witherTimer.timer, 0f, witherTimeLength, 1f, 0f);
-                //    leafColor.color = greenLeaf;
-                //}                
+                startWither = false;             
             }
         }
     }
@@ -102,6 +77,7 @@ public class Wither : MonoBehaviour
     public void ResetLeafColor()
     {
         leafColor.color = greenLeaf;
+        witherTimer.ResetSelf(witherTime);
     }
 
 

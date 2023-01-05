@@ -16,6 +16,8 @@ public class StateController : MonoBehaviour
     [HideInInspector] public CapsuleCollider boboCollider;
     public DialogueSystem friendDialougue;
     public ScoreManager scoreManager;
+    public CameraLook cameraLook;
+    public MapManager mapManager;
     public Transform cameraTrans;
 
     [SerializeField] private StateSO _currentState;
