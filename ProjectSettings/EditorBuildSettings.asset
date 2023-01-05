@@ -14,7 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level0_2.0.unity
     guid: 38c32b7c4d859b94f9597f4fd140b305
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MissAccoplished.unity
     guid: 57992dbae4bba854b844855b2368764a
   m_configObjects:

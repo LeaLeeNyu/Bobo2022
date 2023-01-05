@@ -27,5 +27,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void RestartTutoria()
+    {
+        SceneManager.LoadScene("Level0_2.0");
+    }
+
 
 }

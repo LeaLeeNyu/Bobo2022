@@ -5,6 +5,7 @@ using UnityEngine;
 public class CoinsCollider : MonoBehaviour
 {
     [SerializeField] private Wither wither;
+    [SerializeField] private AudioSource coinsSound;
     //collide with bobo, coin destory
     private void OnTriggerEnter(Collider other)
     {
@@ -21,6 +22,8 @@ public class CoinsCollider : MonoBehaviour
             {
                 wither.witherTimer.timer = wither.witherTimeLength;
             }
+
+            coinsSound.Play();
 
             Destroy(gameObject);
         }

@@ -18,6 +18,7 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] private TMP_Text scoreText;
     [SerializeField] private TMP_Text timeScoreT;
     [SerializeField] private TMP_Text coinsScoreT;
+    [SerializeField] private AudioSource winSound;
 
     [HideInInspector] public bool gameEnd = false;
 
@@ -35,6 +36,8 @@ public class ScoreManager : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            winSound.Play();
+
             gameEnd = true;
             //display the score
             scoreText.text = countScore().ToString();
