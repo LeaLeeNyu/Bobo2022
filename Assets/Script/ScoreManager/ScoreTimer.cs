@@ -16,7 +16,7 @@ public class ScoreTimer : MonoBehaviour
     {
         if (countTime)
         {
-            levelTime = Time.deltaTime;
+            levelTime += Time.deltaTime;
         }
         
     }

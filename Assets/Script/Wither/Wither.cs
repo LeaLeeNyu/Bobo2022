@@ -37,21 +37,21 @@ public class Wither : MonoBehaviour
 
     private void Update()
     {
-        DetectCollider();
+        //DetectCollider();
+        //witherTimer.UpdateTimer();
 
-        if (startWither && !died && !aniController.diedAniStart)
-        {
-            //change leaves color by time
-            colorTime = Map(witherTimer.timer, 0f, witherTime, 1f, 0f);
-            leafColor.color = Color.Lerp(greenLeaf, yellowLeaf, colorTime);
-
-            witherTimer.UpdateTimer();
-            //Debug.Log(witherTimer.timer);
-        }
+        ////if player on the wither ground and not die
+        //if (startWither && !died && !aniController.diedAniStart)
+        //{
+        //    //change leaves color by time
+        //    colorTime = Map(witherTimer.timer, 0f, witherTimeLength, 1f, 0f);
+        //    leafColor.color = Color.Lerp(greenLeaf, yellowLeaf, colorTime);          
+        //    //Debug.Log(witherTimer.timer);
+        //}
 
     }
 
-    private void DetectCollider()
+    public void DetectCollider()
     {
         Collider[] hitColliders = Physics.OverlapSphere(groundCheck.position, groundCheckRadius);
         foreach(Collider collider in hitColliders)
@@ -69,16 +69,41 @@ public class Wither : MonoBehaviour
                
 
                 //reset bobo leaf color 
-                if (!died && !aniController.diedAniStart)
-                {
-                    witherTimer.ResetSelf(witherTime);
-                    colorTime = Map(witherTimer.timer, 0f, witherTime, 1f, 0f);
-                    leafColor.color = greenLeaf;
-                    Debug.Log("reset");
-                }                
+                //if (!died && !aniController.diedAniStart)
+                //{
+                //    witherTimer.ResetSelf(witherTime);
+                //    colorTime = Map(witherTimer.timer, 0f, witherTimeLength, 1f, 0f);
+                //    leafColor.color = greenLeaf;
+                //}                
             }
         }
     }
+
+    public void UpdateTimer()
+    {
+        //if player on the wither ground
+        if (startWither)
+        {
+            witherTimer.UpdateTimer();
+        }
+        else
+        {
+            witherTimer.ResetSelf(witherTime);
+        }
+            
+    }
+
+    public void UpdateLeafColor()
+    {
+        colorTime = Map(witherTimer.timer, 0f, witherTimeLength, 1f, 0f);
+        leafColor.color = Color.Lerp(greenLeaf, yellowLeaf, colorTime);
+    }
+
+    public void ResetLeafColor()
+    {
+        leafColor.color = greenLeaf;
+    }
+
 
     private void Withered()
     {

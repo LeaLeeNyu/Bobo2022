@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class CameraLook : MonoBehaviour
@@ -19,6 +20,11 @@ public class CameraLook : MonoBehaviour
     //public Dialogue friendDialogue;
     public static bool friendIsHit = false;
     [SerializeField] private DialogueSystem friendDialogueSystem;
+
+    //Map
+    [SerializeField] private GameObject mapUI;
+    [HideInInspector] public bool lookMap= false;
+    [HideInInspector] public string mapName;
 
 
     void Start()
@@ -41,7 +47,7 @@ public class CameraLook : MonoBehaviour
         if (Physics.Raycast(cameraM.transform.position, cameraM.transform.forward, out hitter,range))
         {
             //Debug.Log("hit something!");
-            //Debug.Log(hitter.collider.gameObject.name);
+            Debug.Log(hitter.collider.gameObject.name);
 
             //if I held some obj
             if (heldObj != null)
@@ -53,15 +59,16 @@ public class CameraLook : MonoBehaviour
                 }
             }
 
-
-            if ( hitter.collider.gameObject.tag == "Map" && heldObj == null)
+            // if player look at map
+            if ( hitter.collider.gameObject.tag == "Map")
             {
                 Debug.Log("can pick");
-                objOriginalPos = hitter.collider.gameObject.transform.position;
+                mapUI.SetActive(true);
 
                 if (Input.GetMouseButtonDown(0))
                 {
-                    PickUpObject(hitter.collider.gameObject, objOriginalPos);
+                    lookMap = true;
+                    mapName = hitter.collider.gameObject.name;
                 }
                 
             }
@@ -80,13 +87,8 @@ public class CameraLook : MonoBehaviour
             else
             {
                 friendIsHit = false;
+                mapUI.SetActive(false);
             }
-        }
-
-        if (Input.GetMouseButton(1) && heldObj != null)
-        {
-            //Debug.Log("drop");
-            DropObject();
         }
     }
     void PickUpObject(GameObject obj,Vector3 objOriginalPos)

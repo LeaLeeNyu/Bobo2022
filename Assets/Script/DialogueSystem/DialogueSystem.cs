@@ -22,20 +22,6 @@ public class DialogueSystem : MonoBehaviour
     public bool noDialogue = true;
 
 
-    // make the DialogueSysyem as Singleton, only one instance exist in the scene
-    //private void Awake()
-    //{
-    //    if (instance != this & instance != null)
-    //    {
-    //        Destroy(gameObject);
-    //    }
-    //    else
-    //    {
-    //        instance = this;
-    //        DontDestroyOnLoad(gameObject);
-    //    }
-    //}
-
     void Start()
     {
         //create a queue for stroing dialogue sentences
@@ -67,6 +53,9 @@ public class DialogueSystem : MonoBehaviour
 
         DisplayNextSentence();
 
+        //stop the timer
+        ScoreTimer.countTime = false;
+
     }
 
     public void DisplayNextSentence()
@@ -89,6 +78,9 @@ public class DialogueSystem : MonoBehaviour
         //The dialogue ends.
         noDialogue = true;
         dialogueAni.SetBool("noDialogue", noDialogue);
+
+        //start the time counter
+        ScoreTimer.countTime = true;
     }
 
 }
